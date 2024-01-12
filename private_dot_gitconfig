@@ -1,6 +1,37 @@
 [user]
 	name = Koen van Gilst
+[color]
+  	# Enable colors in color-supporting terminals
+  	ui = auto
 [alias]
+	# List available aliases
+  	aliases = !git config --get-regexp alias | sed -re 's/alias\\.(\\S*)\\s(.*)$/\\1 = \\2/g'
+	
+	# Command shortcuts
+  	ci = commit
+  	co = checkout
+  	st = status
+  	
+	# Display tree-like log, because default log is a pain…
+  	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+  	
+	# Useful when you have to update your last commit
+  	# with staged files without editing the commit message.
+ 	oops = commit --amend --no-edit
+  	
+	# Ensure that force-pushing won't lose someone else's work (only mine).
+  	push-with-lease = push --force-with-lease
+
+	# List local commits that were not pushed to remote repository
+	review-local = "!git lg @{push}.."
+  
+	# Edit last commit message
+  	reword = commit --amend
+  
+	# Remove file(s) from Git but not from disk
+  	untrack = rm --cache --
+	
+	# Old
 	ac = !git add -A && git commit
 	amen = !git add --all && git commit --amend
 	ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
