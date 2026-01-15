@@ -63,13 +63,24 @@ FORMULAE=(
 
 # Casks (GUI applications)
 CASKS=(
+    1password
     1password-cli
+    brave-browser
+    cap
+    claude
+    iterm2
     keepingyouawake
+    macwhisper
     nightfall
     obsidian
+    protonvpn
     rectangle
+    spotify
+    tailscale
     transmission
+    visual-studio-code
     vlc
+    whatsapp
 )
 
 echo "==> Installing formulae..."
