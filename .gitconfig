@@ -1,0 +1,67 @@
+[user]
+	name = Koen van Gilst
+	email = koen@koenvangilst.nl
+	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDA9GXs6AIm4ejKHVDOdtoGvNNhCrn4xsmlO/NaTisKjlPhGSgc3zgiIZn3m9imJ9WVcu4kAA5Ut033zErPgw4Ojizb1xbHQOuJPZu0R3gCe6BOrC4d/TC/vBj4YPFFt2AJLZ8WWZEjU9561l3mvemIhnP2x7f/QMESLSMpeDwuxBx//Ua5nj2X2d+gIGvdL0lw6I3Mmp9bNuxbYqOn5Gt4FQqkoiOngk4hN4irIgwcwkBgxnRLx5LwVEquKJGgaG93TPTH2j4zwt4GWg3JfHB94RDd5cPoXy8zONvLShdxFvKnGNORRbxACxdmV/PaummOuyIB55If0NKefJ0MQd97nvDGv9/nC1gFQOoDA47v11icrBmwJzcf05vag695CvOlJkAqEhzYVYfjk3gNWvxcausr9wG17U9b7AafWosuKm43YPyb1EmrZf2DaoSWQo5Lzfq7x5wmVTSDnEmeQtq8ZzZT5md3Lcux3mCO+LFKpjaDnt6MfBokjhKS48/eLqKHFrCgHWcm/bRGff7TgIG4XbdfJD9i2OF2cK21UGglauH06Xv82OrByAoYJMWcabRNGV2FivSWb8ixHWZuH7U0yFEjTFWuaVlY4cIHy56fWb0VXEAIf0rEEz0ZWR7REvgki8JwTsnwckjNTpkAVAuTAF7eaVmx5feL3P6A0C47BQ==
+
+[color]
+	ui = auto
+
+[core]
+	ignorecase = true
+	editor = nano
+
+[init]
+	defaultBranch = main
+
+[pull]
+	ff = only
+
+[push]
+	autoSetupRemote = true
+
+[fetch]
+	prune = true
+
+[diff]
+	external = difft
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[commit]
+	gpgsign = true
+
+[advice]
+	skippedCherryPicks = false
+
+[alias]
+	# Status and info
+	st = status
+	aliases = !git config --get-regexp alias | sed -re 's/alias\\.(\\S*)\\s(.*)$/\\1 = \\2/g'
+
+	# Branching
+	co = checkout
+	ci = commit
+
+	# Logging
+	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+	ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	changelog = log --pretty='- %s'
+	standup = log --author=Koen --since='yesterday' --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit
+	review-local = "!git lg @{push}.."
+
+	# Quick commits
+	ac = !git add -A && git commit
+	oops = commit --amend --no-edit
+	amen = !git add --all && git commit --amend
+	reword = commit --amend
+
+	# Undo
+	undo = reset --soft HEAD^
+	untrack = rm --cache --
+
+	# Safe force push
+	push-with-lease = push --force-with-lease
