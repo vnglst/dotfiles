@@ -4,13 +4,18 @@
 # Sets sensible macOS defaults for a new machine
 # Run this script and then restart your Mac for all changes to take effect
 
-set -e
-
 echo "==> Setting macOS defaults..."
 
-# Close System Preferences to prevent it from overriding settings
+# Close System Preferences and Safari to prevent them from overriding settings
 osascript -e 'tell application "System Preferences" to quit' 2>/dev/null || true
 osascript -e 'tell application "System Settings" to quit' 2>/dev/null || true
+osascript -e 'tell application "Safari" to quit' 2>/dev/null || true
+
+# Forcefully kill Safari if it's still running
+killall -9 Safari 2>/dev/null || true
+
+# Wait a moment for apps to close
+sleep 2
 
 # Ask for sudo upfront
 sudo -v
@@ -174,15 +179,15 @@ defaults write com.apple.screencapture disable-shadow -bool true
 ###############################################################################
 
 # Show the full URL in the address bar
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+sudo defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
 # Enable the Develop menu and Web Inspector
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+sudo defaults write com.apple.Safari IncludeDevelopMenu -bool true
+sudo defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+sudo defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
 # Enable "Do Not Track"
-defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+sudo defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
 ###############################################################################
 # Activity Monitor                                                            #
