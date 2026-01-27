@@ -45,6 +45,11 @@ cd ~/Code/dotfiles
 
 Keyboard-driven tiling window manager setup. See [blog post](https://koenvangilst.nl/blog/aerospace-sketchybar-macos-setup) for details.
 
+**SketchyBar padding (windows stay below the bar):**
+- AeroSpace reserves space at the top via `gaps.outer.top`. This prevents tiled windows from covering SketchyBar.
+- It’s configured per-monitor in [aerospace/aerospace.toml](aerospace/aerospace.toml) (built-in uses a smaller value, external uses SketchyBar height).
+- After tweaking, run `aerospace reload-config` (and `sketchybar --reload` if you changed SketchyBar).
+
 **Workspace layout:**
 1. iTerm
 2. Browser
