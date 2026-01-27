@@ -68,7 +68,8 @@ alt-f = 'fullscreen'
 alt-r = 'layout tiles horizontal vertical'
 
 # Balance windows (alt + b)
-alt-b = 'balance-sizes'
+alt-b = ['flatten-workspace-tree', 'balance-sizes']
+alt-shift-b = ['flatten-workspace-tree', 'balance-sizes']
 
 # Resize windows (ctrl + alt + hjkl)
 ctrl-alt-h = 'resize width -50'
