@@ -6,8 +6,11 @@ start-at-login = true
 # Notify SketchyBar on workspace changes
 exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE']
 
-# New windows spawn on focused workspace
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+# Keep bar highlight in sync when switching monitors
+on-focused-monitor-changed = [
+	'move-mouse monitor-lazy-center',
+	'exec-and-forget /bin/bash -lc "sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)"',
+]
 
 # Gaps and padding
 [gaps]
@@ -16,7 +19,7 @@ inner.vertical = 10
 outer.left = 10
 outer.right = 10
 outer.bottom = 10
-outer.top = 10
+outer.top = [{ monitor."built-in" = 10 }, { monitor."lg" = 50 }, 50]
 
 # Per-monitor workspaces: each monitor gets workspaces 1-5
 [workspace-to-monitor-force-assignment]
@@ -120,8 +123,6 @@ run = ['move-node-to-workspace 5', 'layout floating']
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace 5'
-
-
 
 # Apps to float by default
 [[on-window-detected]]
