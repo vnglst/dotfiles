@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AeroSpace Shortcuts</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 8mm;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 8pt;
+        line-height: 1.2;
+        color: #1a1a1a;
+        padding: 0;
+        width: 210mm;
+        min-height: 297mm;
+        background: #fff;
+      }
+
+      h1 {
+        font-size: 14pt;
+        font-weight: 700;
+        margin-bottom: 4mm;
+        text-align: center;
+        color: #000;
+        border-bottom: 2px solid #000;
+        padding-bottom: 2mm;
+      }
+
+      .page {
+        padding: 8mm;
+      }
+
+      .columns {
+        column-count: 2;
+        column-gap: 10mm;
+      }
+
+      .block {
+        break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        margin-bottom: 2mm;
+      }
+
+      h2 {
+        font-size: 10pt;
+        font-weight: 600;
+        margin-top: 3mm;
+        margin-bottom: 1.5mm;
+        color: #2c3e50;
+        background: #f0f0f0;
+        padding: 1mm 2mm;
+        border-left: 3px solid #3498db;
+      }
+
+      .shortcut-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 0.8mm 2.5mm;
+        margin-bottom: 2mm;
+      }
+
+      .key {
+        font-family: "Monaco", "Courier New", monospace;
+        font-size: 8pt;
+        font-weight: 600;
+        background: #e8e8e8;
+        padding: 0.8mm 1.6mm;
+        border-radius: 2mm;
+        border: 1px solid #999;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .action {
+        font-size: 8pt;
+        padding: 0.6mm 0;
+        color: #444;
+      }
+
+      .workspace-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2mm;
+        margin-bottom: 2mm;
+      }
+
+      .workspace-item {
+        font-size: 8pt;
+        background: #f9f9f9;
+        padding: 1.2mm;
+        border-radius: 2mm;
+        border: 1px solid #ddd;
+      }
+
+      .workspace-num {
+        font-weight: 700;
+        color: #3498db;
+      }
+
+      @media print {
+        body {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        h1 {
+          page-break-after: avoid;
+        }
+
+        h2 {
+          page-break-after: avoid;
+        }
+
+        .shortcut-grid {
+          page-break-inside: avoid;
+        }
+
+        .block {
+          page-break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <h1>AeroSpace Shortcuts</h1>
+
+      <div class="columns">
+        <section class="block">
+          <h2>Window Focus (⌥ + h/j/k/l)</h2>
+          <div class="shortcut-grid">
+            <div class="key">⌥ h</div>
+            <div class="action">Focus left</div>
+            <div class="key">⌥ j</div>
+            <div class="action">Focus down</div>
+            <div class="key">⌥ k</div>
+            <div class="action">Focus up</div>
+            <div class="key">⌥ l</div>
+            <div class="action">Focus right</div>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2>Move Window (⇧⌥ + h/j/k/l)</h2>
+          <div class="shortcut-grid">
+            <div class="key">⇧⌥ h</div>
+            <div class="action">Move left</div>
+            <div class="key">⇧⌥ j</div>
+            <div class="action">Move down</div>
+            <div class="key">⇧⌥ k</div>
+            <div class="action">Move up</div>
+            <div class="key">⇧⌥ l</div>
+            <div class="action">Move right</div>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2>Resize Window (⌃⌥ + h/j/k/l)</h2>
+          <div class="shortcut-grid">
+            <div class="key">⌃⌥ h</div>
+            <div class="action">Decrease width</div>
+            <div class="key">⌃⌥ j</div>
+            <div class="action">Increase height</div>
+            <div class="key">⌃⌥ k</div>
+            <div class="action">Decrease height</div>
+            <div class="key">⌃⌥ l</div>
+            <div class="action">Increase width</div>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2>Workspaces</h2>
+          <div class="shortcut-grid">
+            <div class="key">⌥ 1-5</div>
+            <div class="action">Switch to workspace 1-5</div>
+            <div class="key">⇧⌥ 1-5</div>
+            <div class="action">Move window to workspace 1-5</div>
+          </div>
+
+          <div class="workspace-row">
+            <div class="workspace-item"><span class="workspace-num">1</span> iTerm</div>
+            <div class="workspace-item"><span class="workspace-num">2</span> Brave</div>
+            <div class="workspace-item"><span class="workspace-num">3</span> VS Code</div>
+          </div>
+          <div class="workspace-row">
+            <div class="workspace-item"><span class="workspace-num">4</span> Claude</div>
+            <div class="workspace-item"><span class="workspace-num">5</span> Notes/Finder/etc</div>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2>Monitors</h2>
+          <div class="shortcut-grid">
+            <div class="key">⌥ i</div>
+            <div class="action">Focus left monitor</div>
+            <div class="key">⌥ o</div>
+            <div class="action">Focus right monitor</div>
+            <div class="key">⇧⌥ i</div>
+            <div class="action">Move window to left monitor</div>
+            <div class="key">⇧⌥ o</div>
+            <div class="action">Move window to right monitor</div>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2>Window Management</h2>
+          <div class="shortcut-grid">
+            <div class="key">⌥ f</div>
+            <div class="action">Toggle fullscreen</div>
+            <div class="key">⌥ t</div>
+            <div class="action">Toggle float/tile</div>
+            <div class="key">⌥ r</div>
+            <div class="action">Rotate layout (H/V)</div>
+            <div class="key">⌥ b</div>
+            <div class="action">Balance window sizes</div>
+            <div class="key">⌥ ↩</div>
+            <div class="action">Launch iTerm</div>
+          </div>
+        </section>
+      </div>
+
+      <p style="margin-top: 3mm; text-align: center; font-size: 7pt; color: #999">
+        ⌥ = Option/Alt | ⇧ = Shift | ⌃ = Control | ↩ = Enter
+      </p>
+    </div>
+  </body>
+</html>
