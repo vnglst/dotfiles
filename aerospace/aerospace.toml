@@ -115,11 +115,23 @@ run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run = 'move-node-to-workspace 5'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.systempreferences'
-run = ['move-node-to-workspace 5', 'layout floating']
+run = ['layout floating']
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
